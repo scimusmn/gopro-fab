@@ -118,7 +118,7 @@ def mode_video_02():
 
 @task
 def mode_settings():
-    """Switch to Settings mode """
+    """Not working - Switch to Settings mode """
     print
     print mode_settings.__doc__
     command_send('camera', 'CM', '07')
@@ -140,8 +140,27 @@ def orientation_down():
     command_send('camera', 'UP', '01')
 
 
+"""
+Setting Video resolutions
+
+The VR command sets the video resolution but doesn't seem to controll
+all the possible resolutionson the Go Pro Hero 3 Black. Here's a list of
+commands that used to work for video resolution but now are causing problems.
+
+Cmd - what it used to do - Current response
+http://10.5.5.9/camera/VR?t=goprohero&p=%00 - WVGA-60 - 410
+http://10.5.5.9/camera/VR?t=goprohero&p=%01 - WVGA-120 - 410
+http://10.5.5.9/camera/VR?t=goprohero&p=%04 - 960-30 - 410
+http://10.5.5.9/camera/VR?t=goprohero&p=%05 - 960-30 - 200 odd status on LCD
+http://10.5.5.9/camera/VR?t=goprohero&p=%08 - ? - 200 reboots camera
+http://10.5.5.9/camera/VR?t=goprohero&p=%09 - ? - 410
+http://10.5.5.9/camera/VR?t=goprohero&p=%10-* - ? - 410
+
+"""
+
+
 @task
-def video_res_4k_12fps():
+def video_4k_12fps():
     """Set the video resolution to 4K Cinema at 12 frames per second"""
     print
     print video_res_4k_12fps.__doc__
@@ -149,7 +168,7 @@ def video_res_4k_12fps():
 
 
 @task
-def video_res_2_7k_24fps():
+def video_2_7k_24fps():
     """Set the video resolution to 2.7k Cinema at 24 frames per second"""
     print
     print video_res_2_7k_24fps.__doc__
@@ -160,21 +179,16 @@ def video_res_2_7k_24fps():
 def video_960_60_fps():
     """Set the video resolution to 1280x960 4:3 at 48 frames per second"""
     print
-    print video_960_60_fps.__doc__
-    command_send('camera', 'VR', '06')
-
-
-@task
-def video_960_test():
-    """Unsure"""
-    print
     print video_960_test.__doc__
+    # 06 - appears to set the same resolution
+    # command_send('camera', 'VR', '07')
     command_send('camera', 'VR', '07')
 
 
-def command_send(device, command, value, debug=False):
+def command_send(device, command, value, debug=True):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
+    print url
 
     f = urllib.urlopen(url)
     if debug:
