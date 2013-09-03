@@ -185,6 +185,30 @@ def video_960_60_fps():
     command_send('camera', 'VR', '07')
 
 
+@task
+def fov_wide():
+    """Change the Field of View to Wide """
+    print
+    print fov_wide.__doc__
+    command_send('camera', 'FV', '00')
+
+
+@task
+def fov_medium():
+    """Change the Field of View to Medium """
+    print
+    print fov_medium.__doc__
+    command_send('camera', 'FV', '01')
+
+
+@task
+def fov_narrow():
+    """Change the Field of View to Narrow """
+    print
+    print fov_narrow.__doc__
+    command_send('camera', 'FV', '02')
+
+
 def command_send(device, command, value, debug=True):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
