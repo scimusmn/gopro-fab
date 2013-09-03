@@ -233,6 +233,38 @@ def beep_loud():
     command_send('camera', 'BS', '02')
 
 
+@task
+def photo_5mp_m():
+    """Set the Photo Resolution to 5 mega-pixels and Field of View to medium"""
+    print
+    print photo_5mp_m.__doc__
+    command_send('camera', 'PR', '03')
+
+
+@task
+def photo_7mp_w():
+    """Set the Photo Resolution to 7 mega-pixels and Field of View to wide"""
+    print
+    print photo_7mp_w.__doc__
+    command_send('camera', 'PR', '04')
+
+
+@task
+def photo_11mp_w():
+    """Set the Photo Resolution to 11 mega-pixels and Field of View to wide"""
+    print
+    print photo_11mp_w.__doc__
+    command_send('camera', 'PR', '05')
+
+
+@task
+def photo_7mp_m():
+    """Set the Photo Resolution to 7 mega-pixels and Field of View to medium"""
+    print
+    print photo_7mp_m.__doc__
+    command_send('camera', 'PR', '06')
+
+
 def command_send(device, command, value, debug=True):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
