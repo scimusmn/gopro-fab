@@ -84,6 +84,14 @@ def mode_photo():
     command_send('camera', 'CM', '01')
 
 
+@task
+def mode_stack_o_papers():
+    """Switch to Stack o' Papers mode """
+    print
+    print mode_photo.__doc__
+    command_send('camera', 'CM', '02')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
