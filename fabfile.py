@@ -16,7 +16,7 @@ PASSWORD = 'goprohero'
 def power_off():
     """Turn camera off """
     print
-    print switch_mode.__doc__
+    print power_off.__doc__
     command_send('bacpac', 'PW', '00')
 
 
@@ -24,7 +24,7 @@ def power_off():
 def power_on():
     """Turn camera on """
     print
-    print switch_mode.__doc__
+    print power_on.__doc__
     command_send('bacpac', 'PW', '01')
 
 
@@ -40,7 +40,7 @@ def switch_mode():
 def capture_stop():
     """Stop the current capture """
     print
-    print switch_mode.__doc__
+    print capture_stop.__doc__
     command_send('bacpac', 'SH', '00')
 
 
@@ -48,7 +48,7 @@ def capture_stop():
 def capture_start():
     """Start the current capture """
     print
-    print switch_mode.__doc__
+    print capture_start.__doc__
     command_send('bacpac', 'SH', '01')
 
 
@@ -56,7 +56,7 @@ def capture_start():
 def preview_off():
     """Turn the preview off """
     print
-    print switch_mode.__doc__
+    print preview_off.__doc__
     command_send('camera', 'PV', '00')
 
 
@@ -64,7 +64,7 @@ def preview_off():
 def preview_on():
     """Turn the preview on """
     print
-    print switch_mode.__doc__
+    print preview_on.__doc__
     command_send('camera', 'PV', '02')
 
 
