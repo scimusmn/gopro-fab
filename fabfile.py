@@ -265,9 +265,35 @@ def photo_7mp_m():
     command_send('camera', 'PR', '06')
 
 
+@task
+def delete_last():
+    """Delete last capture
+
+    This will delete the last media captured regardless of type """
+    print
+    print delete_last.__doc__
+    command_send('camera', 'DL', '')
+
+
+@task
+def delete_all():
+    """Delete all captures
+
+    This will delete all of the media on the camera. """
+    print
+    print delete_last.__doc__
+    command_send('camera', 'DA', '')
+
+
 def command_send(device, command, value, debug=True):
+    """Use the GoPro wireless server to send a command """
+
+    # For some of the commands there are not values. In this case, we doesn
+    # not add a % to the value argument
+    if value != '':
+        value = '%' + value
     url = 'http://' + IP + '/' + device + '/' + command + \
-          '?t=' + PASSWORD + '&' + 'p=%' + value
+          '?t=' + PASSWORD + '&' + 'p=' + value
     print url
 
     f = urllib.urlopen(url)
