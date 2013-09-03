@@ -52,6 +52,30 @@ def capture_start():
     command_send('bacpac', 'SH', '01')
 
 
+@task
+def preview_off():
+    """Turn the preview off """
+    print
+    print switch_mode.__doc__
+    command_send('camera', 'PV', '00')
+
+
+@task
+def preview_on():
+    """Turn the preview on """
+    print
+    print switch_mode.__doc__
+    command_send('camera', 'PV', '02')
+
+
+@task
+def mode_video():
+    """Switch to Video mode """
+    print
+    print mode_video.__doc__
+    command_send('camera', 'CM', '00')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
