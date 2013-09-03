@@ -132,6 +132,54 @@ def mode_settings():
     command_send('camera', 'CM', '07')
 
 
+@task
+def orientation_up():
+    """Set the orientation on the LCD screen on the camera to up"""
+    print
+    print orientation_up.__doc__
+    command_send('camera', 'UP', '00')
+
+
+@task
+def orientation_down():
+    """Set the orientation on the LCD screen on the camera to upsidedown"""
+    print
+    print orientation_down.__doc__
+    command_send('camera', 'UP', '01')
+
+
+@task
+def video_res_4k_12fps():
+    """Set the video resolution to 4K Cinema at 12 frames per second"""
+    print
+    print video_res_4k_12fps.__doc__
+    command_send('camera', 'VR', '02')
+
+
+@task
+def video_res_2_7k_24fps():
+    """Set the video resolution to 2.7k Cinema at 24 frames per second"""
+    print
+    print video_res_2_7k_24fps.__doc__
+    command_send('camera', 'VR', '03')
+
+
+@task
+def video_960_60_fps():
+    """Set the video resolution to 1280x960 4:3 at 48 frames per second"""
+    print
+    print video_960_60_fps.__doc__
+    command_send('camera', 'VR', '06')
+
+
+@task
+def video_960_test():
+    """Unsure"""
+    print
+    print video_960_test.__doc__
+    command_send('camera', 'VR', '07')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
