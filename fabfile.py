@@ -116,6 +116,22 @@ def mode_playback():
     command_send('camera', 'CM', '05')
 
 
+@task
+def mode_video_02():
+    """Switch to Video mode - duplicate """
+    print
+    print mode_video_02.__doc__
+    command_send('camera', 'CM', '06')
+
+
+@task
+def mode_settings():
+    """Switch to Settings mode """
+    print
+    print mode_settings.__doc__
+    command_send('camera', 'CM', '07')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
