@@ -209,6 +209,30 @@ def fov_narrow():
     command_send('camera', 'FV', '02')
 
 
+@task
+def beep_off():
+    """Set the button beep volume to zero """
+    print
+    print beep_off.__doc__
+    command_send('camera', 'BS', '00')
+
+
+@task
+def beep_quiet():
+    """Set the button beep volume to quiet """
+    print
+    print beep_quiet.__doc__
+    command_send('camera', 'BS', '01')
+
+
+@task
+def beep_loud():
+    """Set the button beep volume to loud """
+    print
+    print beep_loud.__doc__
+    command_send('camera', 'BS', '02')
+
+
 def command_send(device, command, value, debug=True):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
