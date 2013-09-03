@@ -36,6 +36,22 @@ def switch_mode():
     command_send('bacpac', 'PW', '02')
 
 
+@task
+def capture_stop():
+    """Stop the current capture """
+    print
+    print switch_mode.__doc__
+    command_send('bacpac', 'SH', '00')
+
+
+@task
+def capture_start():
+    """Start the current capture """
+    print
+    print switch_mode.__doc__
+    command_send('bacpac', 'SH', '01')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
