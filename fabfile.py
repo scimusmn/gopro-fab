@@ -88,8 +88,32 @@ def mode_photo():
 def mode_stack_o_papers():
     """Switch to Stack o' Papers mode """
     print
-    print mode_photo.__doc__
+    print mode_stack_o_papers.__doc__
     command_send('camera', 'CM', '02')
+
+
+@task
+def mode_timer_camera():
+    """Switch to Timer Camera mode """
+    print
+    print mode_timer_camera.__doc__
+    command_send('camera', 'CM', '03')
+
+
+@task
+def mode_timelapse():
+    """Switch to Timelapse mode - DOESN'T WORK """
+    print
+    print mode_timelapse.__doc__
+    command_send('camera', 'CM', '04')
+
+
+@task
+def mode_playback():
+    """Switch to Playback mode """
+    print
+    print mode_playback.__doc__
+    command_send('camera', 'CM', '05')
 
 
 def command_send(device, command, value, debug=False):
