@@ -85,27 +85,19 @@ def mode_photo():
 
 
 @task
-def mode_stack_o_papers():
-    """Switch to Stack o' Papers mode """
+def mode_photo_burst():
+    """Switch to Photo Burst mode """
     print
-    print mode_stack_o_papers.__doc__
+    print mode_photo_burst.__doc__
     command_send('camera', 'CM', '02')
 
 
 @task
-def mode_timer_camera():
-    """Switch to Timer Camera mode """
-    print
-    print mode_timer_camera.__doc__
-    command_send('camera', 'CM', '03')
-
-
-@task
 def mode_timelapse():
-    """Switch to Timelapse mode - DOESN'T WORK """
+    """Switch to Timelapse mode """
     print
     print mode_timelapse.__doc__
-    command_send('camera', 'CM', '04')
+    command_send('camera', 'CM', '03')
 
 
 @task
