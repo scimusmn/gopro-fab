@@ -76,6 +76,14 @@ def mode_video():
     command_send('camera', 'CM', '00')
 
 
+@task
+def mode_photo():
+    """Switch to Photo mode """
+    print
+    print mode_photo.__doc__
+    command_send('camera', 'CM', '01')
+
+
 def command_send(device, command, value, debug=False):
     url = 'http://' + IP + '/' + device + '/' + command + \
           '?t=' + PASSWORD + '&' + 'p=%' + value
