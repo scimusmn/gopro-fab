@@ -70,7 +70,7 @@ def preview_on():
 
 @task
 def mode_video():
-    """Switch to Video mode """
+    """Switch to video mode """
     print
     print mode_video.__doc__
     command_send('camera', 'CM', '00')
@@ -78,7 +78,7 @@ def mode_video():
 
 @task
 def mode_photo():
-    """Switch to Photo mode """
+    """Switch to photo mode """
     print
     print mode_photo.__doc__
     command_send('camera', 'CM', '01')
@@ -86,7 +86,7 @@ def mode_photo():
 
 @task
 def mode_photo_burst():
-    """Switch to Photo Burst mode """
+    """Switch to photo burst mode """
     print
     print mode_photo_burst.__doc__
     command_send('camera', 'CM', '02')
@@ -94,7 +94,7 @@ def mode_photo_burst():
 
 @task
 def mode_timelapse():
-    """Switch to Timelapse mode """
+    """Switch to timelapse mode """
     print
     print mode_timelapse.__doc__
     command_send('camera', 'CM', '03')
@@ -102,7 +102,7 @@ def mode_timelapse():
 
 @task
 def mode_playback():
-    """Switch to Playback mode """
+    """Switch to playback mode """
     print
     print mode_playback.__doc__
     command_send('camera', 'CM', '05')
@@ -110,7 +110,7 @@ def mode_playback():
 
 @task
 def mode_video_02():
-    """Switch to Video mode - duplicate """
+    """Switch to video mode - duplicate """
     print
     print mode_video_02.__doc__
     command_send('camera', 'CM', '06')
@@ -118,7 +118,7 @@ def mode_video_02():
 
 @task
 def mode_settings():
-    """Not working - Switch to Settings mode """
+    """Not working - Switch to settings mode """
     print
     print mode_settings.__doc__
     command_send('camera', 'CM', '07')
@@ -141,7 +141,7 @@ def orientation_down():
 
 
 """
-Setting Video resolutions
+Setting video resolutions
 
 The VR command sets the video resolution but doesn't seem to controll
 all the possible resolutionson the Go Pro Hero 3 Black. Here's a list of
@@ -187,7 +187,7 @@ def video_960_60_fps():
 
 @task
 def fov_wide():
-    """Change the Field of View to Wide """
+    """Change the field of view to wide """
     print
     print fov_wide.__doc__
     command_send('camera', 'FV', '00')
@@ -195,7 +195,7 @@ def fov_wide():
 
 @task
 def fov_medium():
-    """Change the Field of View to Medium """
+    """Change the field of view to medium """
     print
     print fov_medium.__doc__
     command_send('camera', 'FV', '01')
@@ -203,7 +203,7 @@ def fov_medium():
 
 @task
 def fov_narrow():
-    """Change the Field of View to Narrow """
+    """Change the field of view to narrow """
     print
     print fov_narrow.__doc__
     command_send('camera', 'FV', '02')
@@ -235,7 +235,7 @@ def beep_loud():
 
 @task
 def photo_5mp_m():
-    """Set the Photo Resolution to 5 mega-pixels and Field of View to medium"""
+    """Set the photo resolution to 5 mega-pixels and field of view to medium"""
     print
     print photo_5mp_m.__doc__
     command_send('camera', 'PR', '03')
@@ -243,7 +243,7 @@ def photo_5mp_m():
 
 @task
 def photo_7mp_w():
-    """Set the Photo Resolution to 7 mega-pixels and Field of View to wide"""
+    """Set the photo resolution to 7 mega-pixels and field of view to wide"""
     print
     print photo_7mp_w.__doc__
     command_send('camera', 'PR', '04')
@@ -251,7 +251,7 @@ def photo_7mp_w():
 
 @task
 def photo_11mp_w():
-    """Set the Photo Resolution to 11 mega-pixels and Field of View to wide"""
+    """Set the photo resolution to 11 mega-pixels and field of view to wide"""
     print
     print photo_11mp_w.__doc__
     command_send('camera', 'PR', '05')
@@ -259,7 +259,7 @@ def photo_11mp_w():
 
 @task
 def photo_7mp_m():
-    """Set the Photo Resolution to 7 mega-pixels and Field of View to medium"""
+    """Set the photo resolution to 7 mega-pixels and field of view to medium"""
     print
     print photo_7mp_m.__doc__
     command_send('camera', 'PR', '06')
