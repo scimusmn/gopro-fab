@@ -1,7 +1,10 @@
 import urllib2
 
+# Yes, I know I shouldn't import everything. We'll fix that after dev
 from fabric.api import *
-from fabric.api import run
+from time import sleep
+
+from bs4 import BeautifulSoup
 
 # Default GoPro Cherokee webserver IP and port
 IP = '10.5.5.9'
@@ -38,7 +41,7 @@ def switch_mode():
 
 @task
 def capture_stop():
-    """Stop the current capture """
+    """Stop a capture """
     print
     print capture_stop.__doc__
     command_send('bacpac', 'SH', '00')
@@ -46,7 +49,7 @@ def capture_stop():
 
 @task
 def capture_start():
-    """Start the current capture """
+    """Start a capture """
     print
     print capture_start.__doc__
     command_send('bacpac', 'SH', '01')
