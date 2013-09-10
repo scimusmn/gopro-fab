@@ -1,4 +1,4 @@
-import urllib
+import urllib2
 
 from fabric.api import *
 from fabric.api import run
@@ -296,7 +296,7 @@ def command_send(device, command, value, debug=True):
           '?t=' + PASSWORD + '&' + 'p=' + value
     print url
 
-    f = urllib.urlopen(url)
+    f = urllib2.urlopen(url)
     if debug:
         print 'Response code'
         print f.getcode()
