@@ -289,6 +289,36 @@ def delete_all():
     command_send('camera', 'DA', '')
 
 
+def last_capture():
+    """Get the most recent capture
+
+    It's probably worth checking this a bit.
+    The last item in the list might not be the latest.
+    Best to check for the largest number.
+    Do these loop over to the begining?
+    """
+    capture_files = get_captures()
+    print 'File: %s' % capture_files[-1]
+
+
+def list_captures():
+    """Get a list of the videos and photo files on the GoPro
+
+    Use BeautifulSoup to parse the GoPro's list of captures
+    This list of captures is provided by the Cherokee webserver on the GoPro
+    To get this capture the GoPro Hero 3 Black
+    """
+    page = urllib2.urlopen(CAPTURE_LIST)
+    html_page = page.read()
+    soup = BeautifulSoup(html_page)
+    captures = soup.find_all('a', class_='link')
+    capture_files = []
+    for capture in captures:
+        capture_file = capture.get('href')
+        capture_files.append(capture_file)
+    return capture_files
+
+
 def command_send(device, command, value, debug=True):
     """Use the GoPro wireless server to send a command """
 
