@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 IP = '10.5.5.9'
 API_URL = 'http://' + IP
 WEB_URL = 'http://' + IP + ':8080'
+CAPTURE_LIST = WEB_URL + '/videos/DCIM/100GOPRO/'
 
 # Default GoPro wireless password
 PASSWORD = 'goprohero'
