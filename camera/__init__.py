@@ -1,9 +1,4 @@
 import urllib2
-
-# Yes, I know I shouldn't import everything. We'll fix that after dev
-from fabric.api import *
-from time import sleep
-
 from bs4 import BeautifulSoup
 
 # Default GoPro Cherokee webserver IP and port
@@ -16,7 +11,6 @@ CAPTURE_LIST = WEB_URL + '/videos/DCIM/100GOPRO/'
 PASSWORD = 'goprohero'
 
 
-@task
 def power_off():
     """Turn camera off """
     print
@@ -24,7 +18,6 @@ def power_off():
     command_send('bacpac', 'PW', '00')
 
 
-@task
 def power_on():
     """Turn camera on """
     print
@@ -32,7 +25,6 @@ def power_on():
     command_send('bacpac', 'PW', '01')
 
 
-@task
 def switch_mode():
     """Switch camera modes """
     print
@@ -40,7 +32,6 @@ def switch_mode():
     command_send('bacpac', 'PW', '02')
 
 
-@task
 def capture_stop():
     """Stop a capture """
     print
@@ -48,7 +39,6 @@ def capture_stop():
     command_send('bacpac', 'SH', '00')
 
 
-@task
 def capture_start():
     """Start a capture """
     print
@@ -56,7 +46,6 @@ def capture_start():
     command_send('bacpac', 'SH', '01')
 
 
-@task
 def preview_off():
     """Turn the preview off """
     print
@@ -64,7 +53,6 @@ def preview_off():
     command_send('camera', 'PV', '00')
 
 
-@task
 def preview_on():
     """Turn the preview on """
     print
@@ -72,7 +60,6 @@ def preview_on():
     command_send('camera', 'PV', '02')
 
 
-@task
 def mode_video():
     """Switch to video mode """
     print
@@ -80,7 +67,6 @@ def mode_video():
     command_send('camera', 'CM', '00')
 
 
-@task
 def mode_photo():
     """Switch to photo mode """
     print
@@ -88,7 +74,6 @@ def mode_photo():
     command_send('camera', 'CM', '01')
 
 
-@task
 def mode_photo_burst():
     """Switch to photo burst mode """
     print
@@ -96,7 +81,6 @@ def mode_photo_burst():
     command_send('camera', 'CM', '02')
 
 
-@task
 def mode_timelapse():
     """Switch to timelapse mode """
     print
@@ -104,7 +88,6 @@ def mode_timelapse():
     command_send('camera', 'CM', '03')
 
 
-@task
 def mode_playback():
     """Switch to playback mode """
     print
@@ -112,7 +95,6 @@ def mode_playback():
     command_send('camera', 'CM', '05')
 
 
-@task
 def mode_video_02():
     """Switch to video mode - duplicate """
     print
@@ -120,7 +102,6 @@ def mode_video_02():
     command_send('camera', 'CM', '06')
 
 
-@task
 def mode_settings():
     """Not working - Switch to settings mode """
     print
@@ -128,7 +109,6 @@ def mode_settings():
     command_send('camera', 'CM', '07')
 
 
-@task
 def orientation_up():
     """Set the orientation on the LCD screen on the camera to up"""
     print
@@ -136,7 +116,6 @@ def orientation_up():
     command_send('camera', 'UP', '00')
 
 
-@task
 def orientation_down():
     """Set the orientation on the LCD screen on the camera to upsidedown"""
     print
@@ -163,33 +142,23 @@ http://10.5.5.9/camera/VR?t=goprohero&p=%10-* - ? - 410
 """
 
 
-@task
 def video_4k_12fps():
-    """Set the video resolution to 4K Cinema at 12 frames per second"""
-    print
-    print video_res_4k_12fps.__doc__
+    """Set the video resolution to 4K Cinema at 12 frames per second """
     command_send('camera', 'VR', '02')
 
 
-@task
 def video_2_7k_24fps():
-    """Set the video resolution to 2.7k Cinema at 24 frames per second"""
-    print
-    print video_res_2_7k_24fps.__doc__
+    """Set the video resolution to 2.7k Cinema at 24 frames per second """
     command_send('camera', 'VR', '03')
 
 
-@task
 def video_960_60_fps():
-    """Set the video resolution to 1280x960 4:3 at 48 frames per second"""
-    print
-    print video_960_test.__doc__
+    """Set the video resolution to 1280x960 4:3 at 48 frames per second """
     # 06 - appears to set the same resolution
     # command_send('camera', 'VR', '07')
     command_send('camera', 'VR', '07')
 
 
-@task
 def fov_wide():
     """Change the field of view to wide """
     print
@@ -197,7 +166,6 @@ def fov_wide():
     command_send('camera', 'FV', '00')
 
 
-@task
 def fov_medium():
     """Change the field of view to medium """
     print
@@ -205,7 +173,6 @@ def fov_medium():
     command_send('camera', 'FV', '01')
 
 
-@task
 def fov_narrow():
     """Change the field of view to narrow """
     print
@@ -213,7 +180,6 @@ def fov_narrow():
     command_send('camera', 'FV', '02')
 
 
-@task
 def beep_off():
     """Set the button beep volume to zero """
     print
@@ -221,7 +187,6 @@ def beep_off():
     command_send('camera', 'BS', '00')
 
 
-@task
 def beep_quiet():
     """Set the button beep volume to quiet """
     print
@@ -229,7 +194,6 @@ def beep_quiet():
     command_send('camera', 'BS', '01')
 
 
-@task
 def beep_loud():
     """Set the button beep volume to loud """
     print
@@ -237,7 +201,6 @@ def beep_loud():
     command_send('camera', 'BS', '02')
 
 
-@task
 def photo_5mp_m():
     """Set the photo resolution to 5 mega-pixels and field of view to medium"""
     print
@@ -245,7 +208,6 @@ def photo_5mp_m():
     command_send('camera', 'PR', '03')
 
 
-@task
 def photo_7mp_w():
     """Set the photo resolution to 7 mega-pixels and field of view to wide"""
     print
@@ -253,7 +215,6 @@ def photo_7mp_w():
     command_send('camera', 'PR', '04')
 
 
-@task
 def photo_11mp_w():
     """Set the photo resolution to 11 mega-pixels and field of view to wide"""
     print
@@ -261,7 +222,6 @@ def photo_11mp_w():
     command_send('camera', 'PR', '05')
 
 
-@task
 def photo_7mp_m():
     """Set the photo resolution to 7 mega-pixels and field of view to medium"""
     print
@@ -269,7 +229,6 @@ def photo_7mp_m():
     command_send('camera', 'PR', '06')
 
 
-@task
 def delete_last():
     """Delete last capture
 
@@ -279,7 +238,6 @@ def delete_last():
     command_send('camera', 'DL', '')
 
 
-@task
 def delete_all():
     """Delete all captures
 
@@ -297,7 +255,7 @@ def last_capture():
     Best to check for the largest number.
     Do these loop over to the begining?
     """
-    capture_files = get_captures()
+    capture_files = list_captures()
     print 'File: %s' % capture_files[-1]
 
 
